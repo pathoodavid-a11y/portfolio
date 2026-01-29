@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WEB ANI Portfolio</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{background:#f5f5f4}
+
+/* ===== NAV ===== */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+background:#f5f5f4;
+    width:100%;
+    transition:.3s;
+}
+
+nav.fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.navlogo img{width:70px}
+
+.navs{
+    display:flex;
+    gap:60px;
+    align-items:center;
+}
+
+.navp{
+    color:#9966cc;
+    font-size:14px;
+}
+
+.anav{text-decoration:none}
+
+
+/* hamburger */
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* ===== ARTICLE ===== */
+article{
+    min-height:calc(100vh - 140px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+h3{
+    font-size:36px;
+    margin-bottom:30px;
+}
+
+/* ===== SLIDER ===== */
+.slider-wrapper{
+    width:75%;
+    max-width:900px;
+    position:relative;
+    overflow:hidden;
+}
+
+.slider{
+    display:flex;
+    transition:transform .5s ease;
+}
+
+.blocka{
+    min-width:100%;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:20px;
+}
+
+.imga{
+    width:320px;
+    border-radius:10px;
+}
+
+.blocka p{
+    font-size:18px;
+    text-align:left;
+}
+
+/* buttons */
+.slider-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#7a52a3;
+    color:#fff;
+    border:none;
+    padding:10px 16px;
+    font-size:20px;
+    cursor:pointer;
+    z-index:10;
+    border-radius:50%;
+}
+
+.prev{left:50px}
+.next{right:50px}
+
+    .projectarticle{
+        background-color: beige;
+        margin-top: 100px;
+        width: 100%;
+        padding-top: 50px;
+    }
+    .projectsum{
+        font-size: 20px;
+        padding: 70px;
+    }
+    .pro{
+        padding: 50px;
+    }
+    .contact{
+        margin-top: 50px;
+        padding-bottom:120px;
+    }
+    .emailbutton{
+        background-color: #9966cc;
+        color: #ebe0f5;
+        height: 45px;
+        width: 150px;
+        border-radius: 20px;
+        border: 0;
+        margin:20px 0;
+    }
+    a{
+        text-decoration: none;
+    }
+/* ===== FOOTER ===== */
+footer{
+    position: fixed;
+    background:#7a52a3;
+    bottom: 0;
+    height:70px;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+footer p{color:#ebe0f5;font-weight:bold}
+
+/* ===== MOBILE ===== */
+@media(max-width:720px){
+    .navs{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background:#f5f5f4;
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+        display:none;
+        z-index: 1000;
+    }
+
+    .navs.active{display:flex}
+    .menu-btn{display:block}
+
+    .blocka{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .blocka p{text-align:center}
+}
+</style>
+</head>
+
+<body>
+
+<nav id="navbar">
+    <div class="navlogo">
+        <a href="index.html"><img src="webanilogo.png"></a>
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <div class="navs" id="navs">
+        <a href="index.html" class="anav"><p class="navp">HOME</p></a>
+        <a href="#projects" class="anav"><p class="navp">PROJECTS</p></a>
+        <a href="#contact" class="anav"><p class="navp">CONTACTS</p></a>
+    </div>
+</nav>
+
+<article>
+<h2>WHAT WE OFFER</h2>
+    <button class="slider-btn prev" onclick="slide(-1)">❮</button>
+    <button class="slider-btn next" onclick="slide(1)">❯</button>
+    
+<div class="slider-wrapper" id="sliderWrapper">
+    
+
+    <div class="slider" id="slider">
+        <div class="blocka">
+            <img src="stay on.jpg" class="imga">
+            <div class="offer">
+            <h2>STAY ON BUSINESS 24/7</h2>
+            <p>Your business doesn’t sleep—and neither should your website.
+                We build smart, reliable websites that work 24/7, even when you’re offline. 
+                From showcasing your services to collecting leads and processing orders, 
+                your website becomes a full-time employee that never takes a break.</p>
+            </div>
+        </div>
+
+        <div class="blocka">
+            <div class="offer">
+            <h2>TRACK YOUR SALES AND PROGRESS</h2>
+            <p>Guesswork doesn’t grow businesses—data does.
+                We design websites with built-in analytics and tracking tools that let you see what’s working in real time. 
+                Track sales, monitor customer behavior, measure performance, and make smarter decisions with confidence.</p>
+            </div>
+            <img src="track sales.jpg" class="imga">
+        </div>
+
+        <div class="blocka">
+            <img src="opportunity.jpg" class="imga">
+            <div class="offer">
+            <h2>SEIZE EVERY OPPORTUNITY</h2>
+            <p>Every visitor is a potential customer—don’t let them slip away.
+                We create high-converting websites designed to capture leads, close sales, 
+                and maximize every opportunity. From fast load speeds to mobile-friendly
+                designs and strong call-to-actions, we help your business turn traffic into results.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="projectarticle" id="projects">
+    <h1 class="project">PROJECTS</h1>
+    <h4 class="projectsum">We build powerful websites that showcase products, 
+        tell your story, and run your business behind the scenes.</h4>
+    
+        <div class="pro">
+    <div class="project1" style="margin-top: 50px;">
+        <h3>Product Display & E-Commerce</h3>
+            <h4>Sell smarter with websites designed to convert visitors into customers.</h4>
+            <p>From clean product displays to secure checkout systems, 
+                we build e-commerce platforms that are fast, user-friendly, and built for growth.</p>
+        </div>
+     <br>
+       <div  class="project2" style="margin-top: 50px;">
+        <h3>Professional Portfolio Websites</h3>
+            <h4>Your work deserves a website that speaks before you do.</h4>
+            <p>We create sleek, professional portfolio websites that highlight your skills, build credibility,
+                and leave a lasting impression on clients and employers.</p>
+        </div>
+    
+    <br>
+       <div  class="project3" style="margin-top: 50px;">
+        <h3>Database Management</h3>
+            <h4>Powering your website with smart, secure data systems.</h4>
+            <p>We design and manage efficient databases that keep your 
+                information organized, secure, and ready to scale as your business grows.</p>
+        </div>
+        </div>
+    </div>
+    
+    <div class="contact" id="contact">
+        <h3>CONTACT</h3>
+        <p><b>Email:</b> Webaniit@gmail.com </p><button class="emailbutton"><a href="mailto:webaniit@gmail.com?subject=Website%20Inquiry" class="emailbutton">
+    Send A Mail Now
+</a></button>
+        <p><b>Phone Number:</b> +2349162635490 </p>
+    </div>
+    
+</article>
+
+<footer>
+<p>© 2026 WEB ANI</p>
+</footer>
+
+<script>
+    /* ===== FIX NAV AFTER SCROLL ===== */
+const nav = document.getElementById("navbar");
+window.addEventListener("scroll",()=>{
+    if(window.scrollY > 50){
+        nav.classList.add("fixed");
+    }else{
+        nav.classList.remove("fixed");
+    }
+});
+/* ===== SLIDER ===== */
+let index = 0;
+const slider = document.getElementById("slider");
+const slides = document.querySelectorAll(".blocka");
+
+function slide(dir){
+    index += dir;
+    if(index < 0) index = slides.length - 1;
+    if(index >= slides.length) index = 0;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+/* ===== SWIPE ===== */
+let startX = 0;
+const wrapper = document.getElementById("sliderWrapper");
+
+wrapper.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+});
+
+wrapper.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+    if(startX - endX > 50) slide(1);
+    if(endX - startX > 50) slide(-1);
+});
+
+/* ===== MOBILE MENU ===== */
+function toggleMenu(){
+    document.getElementById("navs").classList.toggle("active");
+}
+    
+/* ===== TYPEWRITER EFFECT ===== */
+const textEl = document.querySelector(".projectsum");
+const text = textEl.innerText;
+textEl.innerText = "";
+let charIndex = 0;
+let started = false;
+
+function typeEffect(){
+    if(charIndex < text.length){
+        textEl.innerHTML += `<span>${text.charAt(charIndex)}</span>`;
+        charIndex++;
+        setTimeout(typeEffect, 35);
+    }
+}
+
+/* trigger on scroll */
+window.addEventListener("scroll", () => {
+    const rect = textEl.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100 && !started){
+        started = true;
+        typeEffect();
+    }
+});
+
+</script>
+
+</body>
+</html>
